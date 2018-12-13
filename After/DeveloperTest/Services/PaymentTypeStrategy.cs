@@ -6,15 +6,15 @@ namespace DeveloperTest.Services
 {
     public class PaymentTypeStrategy: IPaymentTypeStrategy
     {
-        private readonly IEnumerable<IPaymentType> _payementTypes;
+        private readonly IEnumerable<IPaymentType> _paymentTypes;
 
-        public PaymentTypeStrategy(IEnumerable<IPaymentType> payementTypes)
+        public PaymentTypeStrategy(IEnumerable<IPaymentType> paymentTypes)
         {
-            _payementTypes = payementTypes;
+            _paymentTypes = paymentTypes;
         }
         public IPaymentType Get(PaymentScheme paymentScheme)
         {
-            IPaymentType paymentType = this._payementTypes.FirstOrDefault(p => p.Type == paymentScheme);
+            IPaymentType paymentType = this._paymentTypes.FirstOrDefault(p => p.Type == paymentScheme);
 
             Guard.AgainstNull(paymentType, $"PaymentType for Scheme {paymentScheme.ToString()} is not registered.");
 
